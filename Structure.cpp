@@ -65,5 +65,26 @@ int main()
              cout << s[i].rollno << "  " << s[i].name << "  " << s[i].SGPA << endl;
     }
 
+    int lower = 0;
+    int upper = n-1;
+    int mid;
+    char y[20];
+
+    cout << "enter a name to be searched using binary search:  ";
+    cin >> y;
+
+    while (lower <= upper)
+    {
+        mid = (lower+upper)/2;
+        if (strcmp(s[mid].name,y)==0)
+            break;
+        else if (strcmp(s[mid].name,y)>1)
+            upper=mid-1;
+        else
+            lower=mid+1;
+    }
+      cout << s[mid].rollno << "  " << s[mid].name << "  " << s[mid].SGPA << endl;
+
+        
     return 0;
 }

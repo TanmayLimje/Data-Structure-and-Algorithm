@@ -7,8 +7,13 @@ public class Main {
         myLinkedList.append(2);
         myLinkedList.append(3);
         myLinkedList.append(4);
-        myLinkedList.reverse();
+        myLinkedList.append(5);
+        myLinkedList.append(6);
         myLinkedList.print();
+
+        Node middle = myLinkedList.findMiddleNode();
+        System.out.println("middle node:" + middle.value);
+
 
     }
 }

@@ -4,10 +4,16 @@ public class Main {
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.insert(47);
-        bst.insert(23);
-        bst.insert(33);
-        bst.insert(45);
-        bst.insert(22);
-        System.out.println(bst.root.left.right.right.value);
+        bst.insert(21);
+        bst.insert(76);
+        bst.insert(18);
+        bst.insert(27);
+        bst.insert(52);
+        bst.insert(82);
+
+        //System.out.println(bst.root.left.right.right.value);
+
+        System.out.println(bst.contains(27));
+        System.out.println(bst.contains(17));
     }
 }

@@ -15,10 +15,11 @@ public class DoublyLinkedList {
     public void printList(){
         Node temp = head;
         while(temp != null){
-            System.out.println(tail.value);
+            System.out.println(temp.value);
             temp = temp.next;
         }
     }
+
 
     public void getHead(){
         System.out.println("Head: " + head.value);
@@ -178,5 +179,68 @@ public class DoublyLinkedList {
 
         length--;
         return temp;
+    }
+
+    public void reverse(){
+
+        Node current = head;
+        Node temp = null;
+
+        for(int i = 0; i < length; i++){
+            temp = current.next;
+            current.next = current.prev;
+            current.prev = temp;
+            current = current.prev;
+        }
+
+        Node Temp = head;
+        head = tail;
+        tail = Temp;
+    }
+
+    public boolean isPalindrome(){
+        if(length == 1)
+            return true;
+
+        Node forward = head;
+        Node backward = tail;
+
+        for(int i = 0 ; i < length/2; i++){
+            if(forward.value != backward.value)
+                return false;
+            forward = forward.next;
+            backward = backward.prev;
+        }
+
+        return true;
+    }
+
+    public void swapPairs(){
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prevNode = dummy;
+
+        while(head != null && head.next != null){
+            Node fNode = head;
+            Node sNode = head.next;
+
+            prevNode.next = sNode;
+            fNode.next = sNode.next;
+            sNode.next = fNode;
+
+            sNode.prev = prevNode;
+            fNode.prev = sNode;
+
+            if(fNode.next != null)
+                fNode.next.prev = fNode;
+
+            head = fNode.next;
+            prevNode = fNode;
+        }
+
+        head = dummy.next;
+
+        if(head != null)
+            head.prev = null;
     }
 }
